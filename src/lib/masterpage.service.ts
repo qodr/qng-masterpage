@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class QNgMasterpageService {
 
-  private masterpage: string = '';
+  private masterpage = '';
   public beforeMasterpageChange: Function | undefined;
   public afterMasterpageChange: Function | undefined;
 

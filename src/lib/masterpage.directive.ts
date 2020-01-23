@@ -24,7 +24,7 @@ export class QNgMasterpageDirective implements AfterViewInit {
     this._masterpageService.afterMasterpageChange = (masterpage) => {
       this.removeDynamicComponent();
       if (this.masterpages && this.masterpages.length > 0) {
-        let selectedMasterpage = this.masterpages.find(x => x.name == masterpage);
+        const selectedMasterpage = this.masterpages.find(x => x.name == masterpage);
         if (selectedMasterpage) {
           this.addDynamicComponent(selectedMasterpage.component);
         } else {

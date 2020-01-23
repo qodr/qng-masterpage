@@ -32,7 +32,8 @@ export class QNgMasterpagesModule {
     };
   }
 
-  constructor(private router: Router, private masterpageService: QNgMasterpageService, @Inject('QNG_DEFAULT_MASTERPAGE') defaultMasterpage: string) {
+  constructor(private router: Router, private masterpageService: QNgMasterpageService,
+    @Inject('QNG_DEFAULT_MASTERPAGE') defaultMasterpage: string) {
 
     router.events.subscribe(event => {
       // NavigationStart
@@ -40,7 +41,7 @@ export class QNgMasterpagesModule {
       // ActivationStart
       if (event instanceof ActivationStart) {
         if (event.snapshot.data) {
-          this.masterpageService.setMasterpage(event.snapshot.data["masterpage"] || defaultMasterpage);
+          this.masterpageService.setMasterpage(event.snapshot.data['masterpage'] || defaultMasterpage);
         } else {
           this.masterpageService.setMasterpage(defaultMasterpage);
         }

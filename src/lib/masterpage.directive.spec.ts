@@ -8,7 +8,7 @@ describe('MasterpageDirective', () => {
   let component: QNgMasterpageDirective;
   let fixture: ComponentFixture<QNgMasterpageDirective>;
 
-  let masterpages: Array<QNgMasterpage> = [];
+  const masterpages: Array<QNgMasterpage> = [];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
