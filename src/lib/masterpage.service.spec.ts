@@ -3,20 +3,16 @@ import { TestBed, async } from '@angular/core/testing';
 import { QNgMasterpageService } from './masterpage.service';
 
 describe('MasterpageService', () => {
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [
-        QNgMasterpageService
-      ]
-    })
-    .compileComponents();
+      providers: [QNgMasterpageService]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       //
-    })
+    });
   });
 
   it('should be created', () => {

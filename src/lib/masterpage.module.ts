@@ -6,35 +6,23 @@ import { QNgMasterpageService } from './masterpage.service';
 import { QNgMasterpage } from './masterpage.class';
 
 @NgModule({
-  declarations: [
-    QNgMasterpageDirective,
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-  ],
-  exports: [
-    QNgMasterpageDirective,
-  ],
-  providers: [
-    QNgMasterpageService,
-  ],
+  declarations: [QNgMasterpageDirective],
+  imports: [CommonModule, RouterModule],
+  exports: [QNgMasterpageDirective],
+  providers: [QNgMasterpageService]
 })
 export class QNgMasterpagesModule {
-
   public static forRoot(defaultMasterpage?: string, masterpages?: Array<QNgMasterpage>): ModuleWithProviders {
     return {
       ngModule: QNgMasterpagesModule,
       providers: [
         { provide: 'QNG_MASTERPAGES', useValue: masterpages },
-        { provide: 'QNG_DEFAULT_MASTERPAGE', useValue: defaultMasterpage || '' },
+        { provide: 'QNG_DEFAULT_MASTERPAGE', useValue: defaultMasterpage || '' }
       ]
     };
   }
 
-  constructor(private router: Router, private masterpageService: QNgMasterpageService,
-    @Inject('QNG_DEFAULT_MASTERPAGE') defaultMasterpage: string) {
-
+  constructor(private router: Router, private masterpageService: QNgMasterpageService, @Inject('QNG_DEFAULT_MASTERPAGE') defaultMasterpage: string) {
     router.events.subscribe(event => {
       // NavigationStart
       // RoutesRecognized

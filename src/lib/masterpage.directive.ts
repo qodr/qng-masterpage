@@ -4,24 +4,23 @@ import { QNgMasterpageService } from './masterpage.service';
 
 @Component({
   selector: '[qng-masterpage]',
-  template: '',
+  template: ''
 })
 export class QNgMasterpageDirective implements AfterViewInit {
-
   @Input('qng-masterpage') masterpages?: Array<QNgMasterpage> = new Array<QNgMasterpage>();
 
-  constructor(private _factoryResolver: ComponentFactoryResolver,
-              private _rootViewContainer: ViewContainerRef,
-              private _masterpageService: QNgMasterpageService,
-              @Inject('QNG_MASTERPAGES') private globalMasterpages: Array<QNgMasterpage>) {
-
-  }
+  constructor(
+    private _factoryResolver: ComponentFactoryResolver,
+    private _rootViewContainer: ViewContainerRef,
+    private _masterpageService: QNgMasterpageService,
+    @Inject('QNG_MASTERPAGES') private globalMasterpages: Array<QNgMasterpage>
+  ) {}
 
   ngAfterViewInit(): void {
     if (this.masterpages == undefined || this.masterpages.length == 0) {
       this.masterpages = this.globalMasterpages;
     }
-    this._masterpageService.afterMasterpageChange = (masterpage) => {
+    this._masterpageService.afterMasterpageChange = masterpage => {
       this.removeDynamicComponent();
       if (this.masterpages && this.masterpages.length > 0) {
         const selectedMasterpage = this.masterpages.find(x => x.name == masterpage);
@@ -44,4 +43,3 @@ export class QNgMasterpageDirective implements AfterViewInit {
     this._rootViewContainer.remove();
   }
 }
-

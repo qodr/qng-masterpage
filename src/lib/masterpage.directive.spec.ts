@@ -12,14 +12,9 @@ describe('MasterpageDirective', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QNgMasterpageDirective ],
-      providers: [
-        QNgMasterpageService,
-        { provide: 'QNG_DEAULT_MASTERPAGE', useValue: '' },
-        { provide: 'QNG_MASTERPAGES', useValue: masterpages },
-      ]
-    })
-    .compileComponents();
+      declarations: [QNgMasterpageDirective],
+      providers: [QNgMasterpageService, { provide: 'QNG_DEAULT_MASTERPAGE', useValue: '' }, { provide: 'QNG_MASTERPAGES', useValue: masterpages }]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
